@@ -1,0 +1,15 @@
+/* Google Font Settings here */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+/* Google Font Settings here */
+
+/* Applying the google font to body here */
+body {
+    font-family: Nunito Sans;
+}
+/* Applying the google font to body here */
+
+/* Tailwind Settings here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Tailwind Settings here */
