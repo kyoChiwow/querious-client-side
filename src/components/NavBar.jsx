@@ -3,43 +3,160 @@ import useAuth from "../hooks/useAuth";
 import logo from "/public/logo.webp";
 
 const NavBar = () => {
-  const { user } = useAuth();
+  const { user, userLogOut } = useAuth();
+
+  const handleLogOut = () => {
+    userLogOut();
+  };
+
   const withoutUserLinks = (
     <>
-      <NavLink to={"/"} className={"text-white font-bold text-lg"}>Home</NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>Queries</NavLink>
-      <NavLink to={"/login"} className={"text-white font-bold text-lg"}>Login</NavLink>
-      <NavLink to={"/register"} className={"text-white font-bold text-lg"}>Register</NavLink>
+      <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to={"/queries"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Queries
+      </NavLink>
+      <NavLink
+        to={"/login"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Login
+      </NavLink>
+      <NavLink
+        to={"/register"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Register
+      </NavLink>
     </>
   );
   const withUserLinks = (
     <>
-      <NavLink to={"/"} className={"text-white font-bold text-lg"}>Home</NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>Queries</NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>
+      <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to={"/queries"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        Queries
+      </NavLink>
+      <NavLink
+        to={"/recommendme"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
         Recommendation For Me
       </NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>My Queries</NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>
+      <NavLink
+        to={"/myqueries"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
+        My Queries
+      </NavLink>
+      <NavLink
+        to={"/myrecommendation"}
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#ff7519] font-bold text-lg"
+            : "text-white font-bold text-lg"
+        }
+      >
         My Recommendation
       </NavLink>
-      <NavLink className={"text-white font-bold text-lg"}>Logout</NavLink>
+      <button onClick={handleLogOut} className={"text-white font-bold text-lg text-left"}>
+        Logout
+      </button>
     </>
   );
   return (
     <div>
       {/* Navbar top part */}
-      <div className="bg-[#1D1D1D]">
+      <div className="bg-[#1D1D1D] py-2">
         {/* Top part inside div */}
-        <div className="lg:max-w-[85%] mx-auto space-x-3">
+        <div className="lg:max-w-[85%] mx-auto space-x-10 hidden lg:block">
           {user ? withUserLinks : withoutUserLinks}
         </div>
         {/* Top part inside div */}
+
+        {/* Dropdown Menu div */}
+        <div className="lg:hidden block">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-[#1D1D1D] rounded-box z-[1] mt-3 w-56 p-2 shadow ml-2"
+            >
+              {user ? withUserLinks : withoutUserLinks}
+            </ul>
+          </div>
+        </div>
+        {/* Dropdown Menu div */}
       </div>
       {/* Navbar top part */}
 
       {/* Navbar bottom Part */}
-      <div className="bg-[#ff7519]">
+      <div className="bg-[#ff7519] px-2 lg:px-0">
         {/* Bottom part div */}
         <div className="lg:max-w-[85%] mx-auto py-4 flex justify-between items-center">
           {/* Bottom Header and Logo part */}
@@ -48,7 +165,7 @@ const NavBar = () => {
               <img className="h-[80px] rounded-full" src={logo} alt="" />
             </div>
 
-            <div>
+            <div className="hidden lg:block">
               <h1 className="text-white font-bold text-4xl">Querious</h1>
             </div>
           </div>
