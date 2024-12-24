@@ -8,7 +8,7 @@ import useAuth from "../../hooks/useAuth";
 import Loading from "../Loading/Loading";
 
 const Register = () => {
-  const { createUserEmail, setUser, updateUser, loading } = useAuth();
+  const { createUserEmail, setUser, updateUser, loading, setLoading } = useAuth();
   const navigate = useNavigate();
 
   if (loading) {
@@ -52,6 +52,7 @@ const Register = () => {
           text: err.message,
           icon: "error",
         });
+        setLoading(false);
       })
       
     });

@@ -8,6 +8,12 @@ body {
 }
 /* Applying the google font to body here */
 
+/* Hiding Overflows */
+html, body {
+    overflow-x: hidden;
+}
+/* Hiding Overflows */
+
 /* Tailwind Settings here */
 @tailwind base;
 @tailwind components;

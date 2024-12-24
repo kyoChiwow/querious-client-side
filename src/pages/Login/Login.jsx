@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
-  const { loginUserEmail, setUser, googleLogin, loading } = useAuth();
+  const { loginUserEmail, setUser, googleLogin, loading, setLoading } = useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,6 +41,7 @@ const Login = () => {
           text: err.message,
           icon: "error",
         });
+        setLoading(false);
       })
       
   };
@@ -70,6 +71,7 @@ const Login = () => {
           text: err.message,
           icon: "error",
         });
+        setLoading(false)
       });
   };
   return (
