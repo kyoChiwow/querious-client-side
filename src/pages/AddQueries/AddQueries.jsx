@@ -1,15 +1,9 @@
-import NavBar from "../../components/NavBar";
+
 
 const AddQueries = () => {
     return (
         <div>
-            <header>
-                <NavBar></NavBar>
-            </header>
-
-            <footer>
-                <NavBar></NavBar>
-            </footer>
+            <h1>this is the add queries page</h1>
         </div>
     );
 };

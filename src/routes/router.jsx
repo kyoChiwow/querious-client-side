@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import MyQueries from "../pages/MyQueries/MyQueries";
 import HomeLayout from "../Layouts/HomeLayout";
+import AddQueries from "../pages/AddQueries/AddQueries";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,11 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login></Login>,
       },
       {
-        path: "/myqueries",
+        path: "myqueries",
         element: (
           <PrivateRoute>
             <MyQueries></MyQueries>
@@ -32,8 +33,9 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: ""
-      }
+        path: "/addqueries",
+        element: <AddQueries></AddQueries>
+      },
     ]
   },
   
