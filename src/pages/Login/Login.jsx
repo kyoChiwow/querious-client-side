@@ -1,5 +1,3 @@
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
 import loginAnimation from "../../assets/lottie/loginAnimation.json";
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -76,9 +74,6 @@ const Login = () => {
   };
   return (
     <div>
-      <header>
-        <NavBar></NavBar>
-      </header>
       {/* Login Form div here */}
       <div>
         <div className="hero bg-base-200 min-h-screen">
@@ -140,9 +135,6 @@ const Login = () => {
         </div>
       </div>
       {/* Login Form div here */}
-      <footer>
-        <Footer></Footer>
-      </footer>
     </div>
   );
 };

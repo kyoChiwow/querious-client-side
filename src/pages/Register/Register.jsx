@@ -1,8 +1,6 @@
 import Lottie from "lottie-react";
 import { Link, useNavigate } from "react-router-dom";
 import registerAnimation from "../../assets/lottie/registerAnimation.json";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../Loading/Loading";
@@ -59,9 +57,6 @@ const Register = () => {
   };
   return (
     <div>
-      <header>
-        <NavBar></NavBar>
-      </header>
       {/* Registration Form div here */}
       <div>
         <div className="hero bg-base-200 min-h-screen">
@@ -143,9 +138,6 @@ const Register = () => {
         </div>
       </div>
       {/* Registration Form div here */}
-      <footer>
-        <Footer></Footer>
-      </footer>
     </div>
   );
 };
