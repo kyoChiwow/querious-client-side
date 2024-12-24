@@ -5,7 +5,7 @@ const MyQueries = () => {
   return (
     <div>
       {/* Banner div here */}
-      <div className="bg-queryBanner xl:h-[605px] bg-no-repeat bg-contain xl:bg-cover border flex justify-end bg-[#f5f5f5]">
+      <div className="bg-queryBanner xl:h-[605px] bg-no-repeat bg-contain xl:bg-cover flex justify-end bg-[#f5f5f5]">
         <div className="text-center flex flex-col justify-center h-full bg-[#f5f5f5] mr-4 md:mr-16 lg:mr-24 xl:mr-44">
           <Slide direction="down">
             <h1 className="xl:text-2xl lg:text-lg md:text-md text-xs mb-2">Want to add</h1>

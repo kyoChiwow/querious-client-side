@@ -105,7 +105,22 @@ const NavBar = () => {
       >
         My Recommendation
       </NavLink>
-      <button onClick={handleLogOut} className={"text-white font-bold text-lg text-left"}>
+
+      <div className="md:hidden gap-4 items-center flex my-4">
+        <img
+          className="w-[60px] h-[60px] rounded-full"
+          src={user?.photoURL}
+          alt=""
+        />
+        <p className="font-bold text-white text-base">
+          Hi, {user?.displayName}
+        </p>
+      </div>
+
+      <button
+        onClick={handleLogOut}
+        className={"text-white font-bold text-lg text-left"}
+      >
         Logout
       </button>
     </>
@@ -172,7 +187,7 @@ const NavBar = () => {
           {/* Bottom Header and Logo part */}
 
           {/* Bottom Search Bar Part */}
-          <div>
+          <div className="lg:w-[40%]">
             <label className="input input-bordered flex items-center gap-2 pr-0">
               <input type="text" className="grow" placeholder="Search" />
               <button className="btn bg-black text-white">
@@ -192,6 +207,19 @@ const NavBar = () => {
             </label>
           </div>
           {/* Bottom Search Bar Part */}
+
+          {/* Bottom User icon and name part */}
+          <div className="md:flex gap-4 items-center hidden">
+            <img
+              className="w-[60px] h-[60px] rounded-full"
+              src={user?.photoURL}
+              alt=""
+            />
+            <p className="font-bold text-white text-base">
+              Hi, {user?.displayName}
+            </p>
+          </div>
+          {/* Bottom User icon and name part */}
         </div>
         {/* Bottom part div */}
       </div>

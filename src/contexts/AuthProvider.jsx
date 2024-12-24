@@ -63,7 +63,7 @@ const AuthProvider = ({ children }) => {
         axios.post("http://localhost:5000/jwt", user, {
           withCredentials: true,
         })
-        .then(res => {
+        .then(() => {
           setLoading(false)
         })
       }
@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
         axios.post("http://localhost:5000/logout", {}, {
           withCredentials: true,
         })
-        .then(res => {
+        .then(() => {
           setLoading(false)
         })
       }

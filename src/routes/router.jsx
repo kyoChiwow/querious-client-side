@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage></HomePage>
+        element: <HomePage></HomePage>,
       },
       {
         path: "register",
@@ -34,14 +34,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/addqueries",
-        element: <AddQueries></AddQueries>
+        element: (
+          <PrivateRoute>
+            <AddQueries></AddQueries>
+          </PrivateRoute>
+        ),
       },
-    ]
+    ],
   },
-  
-  
-  
-  
 ]);
 
 export default router;

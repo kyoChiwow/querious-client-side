@@ -9,7 +9,7 @@ const HomeLayout = () => {
                 <NavBar></NavBar>
             </header>
             {/* Outlet div here */}
-            <div>
+            <div className="mt-20">
                 <Outlet></Outlet>
             </div>
             {/* Outlet div here */}

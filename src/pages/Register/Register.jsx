@@ -30,21 +30,25 @@ const Register = () => {
     }
 
     // Creating user here
-    createUserEmail(gettingData.email, gettingData.password).then((result) => {
+    createUserEmail(gettingData.email, gettingData.password)
+    .then((result) => {
       const user = result.user;
       setUser(user);
       updateUser({
-        displayName: gettingData.name,
+        displayName: gettingData.username,
         photoURL: gettingData.photourl,
-      });
-      Swal.fire({
-        title: "Success!",
-        text: "You have successfully created your account!",
-        icon: "success",
-        willClose: () => {
-          navigate("/");
-        },
-      }).catch((err) => {
+      })
+      .then(() => {
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully created your account!",
+          icon: "success",
+          willClose: () => {
+            navigate("/");
+          },
+        })
+      })
+      .catch((err) => {
         Swal.fire({
           title: "Error!",
           text: err.message,
