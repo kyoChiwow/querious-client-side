@@ -1,26 +1,52 @@
 import Lottie from "lottie-react";
-import queryAddAnimation from "../../assets/lottie/queryAddAnimation.json"
+import queryAddAnimation from "../../assets/lottie/queryAddAnimation.json";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddQueries = () => {
-    const { user } = useAuth();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
-    const handleQueryForm = (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(e.target)
-        const queryData = Object.fromEntries(formData.entries());
-        
-        // Creating a new query object with the user information
-        const fullQueryData = {...queryData, 
-            userEmail: user?.email,
-            userName: user?.displayName,
-            userProfilePicture: user?.photoURL,
-            recommendationCount: 0,
-            createdAt: Date.now(),
-        }
-        console.log(fullQueryData);
-    }
+  const handleQueryForm = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const queryData = Object.fromEntries(formData.entries());
+
+    // Creating a new query object with the user information
+    const fullQueryData = {
+      ...queryData,
+      userEmail: user?.email,
+      userName: user?.displayName,
+      userProfilePicture: user?.photoURL,
+      recommendationCount: 0,
+      createdAt: Date.now(),
+    };
+
+    // Sending the data to the Backend here
+    axiosSecure
+      .post("http://localhost:5000/query", fullQueryData)
+      .then(() => {
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully created your product!",
+          icon: "success",
+          willClose: () => {
+            navigate("/myqueries");
+          },
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error!",
+          text: err.message,
+          icon: "error",
+        });
+      });
+  };
   return (
     <div className="max-w-[95%] mx-auto">
       <header className="text-center">
@@ -34,7 +60,7 @@ const AddQueries = () => {
       {/* Product query form div here */}
       <div className="mt-10">
         <div className="xl:w-[30%] md:w-[50%] mx-auto">
-            <Lottie animationData={queryAddAnimation}></Lottie>
+          <Lottie animationData={queryAddAnimation}></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-screen-md xl:max-w-screen-lg shrink-0 shadow-2xl mx-auto mt-10">
           <form onSubmit={handleQueryForm} className="card-body">
