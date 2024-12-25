@@ -39,7 +39,7 @@ const UpdateQuery = () => {
       .then(() => {
         Swal.fire({
           title: "Success!",
-          text: "You have successfully updated your product!",
+          text: "You have successfully updated your query!",
           icon: "success",
           willClose: () => {
             navigate("/myqueries");

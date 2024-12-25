@@ -32,7 +32,7 @@ const AddQueries = () => {
       .then(() => {
         Swal.fire({
           title: "Success!",
-          text: "You have successfully created your product!",
+          text: "You have successfully created your query!",
           icon: "success",
           willClose: () => {
             navigate("/myqueries");

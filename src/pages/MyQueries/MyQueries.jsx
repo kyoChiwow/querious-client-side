@@ -12,6 +12,18 @@ const MyQueries = () => {
   const { user } = useAuth();
   const [queries, setQueries] = useState([]);
 
+  const handleQueryDelete = (id) => {
+    axiosSecure.delete(`/myquery/${id}`)
+    .then(res => {
+      if(res.data.deletedCount) {
+        const remainingQuery = queries.filter(
+        (query) => query._id !== id
+        );
+        setQueries(remainingQuery);
+      }
+    })
+  }
+
   useEffect(() => {
     axiosSecure.get(`/myquery?email=${user.email}`).then((res) => {
       setQueries(res.data);
@@ -66,7 +78,11 @@ const MyQueries = () => {
         {queries.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {queries.map((query, idx) => (
-              <MyQueryCard key={idx} query={query}></MyQueryCard>
+              <MyQueryCard 
+              key={idx} 
+              query={query}
+              onDelete={handleQueryDelete}
+              ></MyQueryCard>
             ))}
           </div>
         ) : (
