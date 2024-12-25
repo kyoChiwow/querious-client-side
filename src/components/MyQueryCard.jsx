@@ -31,7 +31,7 @@ const MyQueryCard = ({ query, onDelete }) => {
       <div className="bg-[#1D1D1D] bg-opacity-90 rounded-xl shadow-xl p-4">
         {/* Image div */}
         <div className="max-w-[330px]">
-          <img className="rounded-xl" src={productPhoto} alt={productName} />
+          <img className="rounded-xl h-[330px] w-full object-fill" src={productPhoto} alt={productName} />
         </div>
         {/* Image div */}
 
@@ -51,7 +51,7 @@ const MyQueryCard = ({ query, onDelete }) => {
 
         {/* Buttons Div */}
         <div className="flex justify-between">
-          <NavLink>
+          <NavLink to={`/viewdetails/${_id}`}>
             <button className="btn btn-sm btn-accent btn-outline">
               View Details
             </button>

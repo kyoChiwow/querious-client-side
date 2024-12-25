@@ -108,7 +108,7 @@ const NavBar = () => {
 
       <div className="md:hidden gap-4 items-center flex my-4">
         <img
-          className="w-[60px] h-[60px] rounded-full"
+          className="w-[60px] h-[60px] rounded-full object-cover"
           src={user?.photoURL}
           alt=""
         />
@@ -211,7 +211,7 @@ const NavBar = () => {
           {/* Bottom User icon and name part */}
           <div className="md:flex gap-4 items-center hidden">
             <img
-              className="w-[60px] h-[60px] rounded-full"
+              className="w-[60px] h-[60px] rounded-full object-cover"
               src={user?.photoURL}
               alt=""
             />
