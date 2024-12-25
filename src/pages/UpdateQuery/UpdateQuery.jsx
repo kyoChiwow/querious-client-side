@@ -1,24 +1,32 @@
 import Lottie from "lottie-react";
-import queryAddAnimation from "../../assets/lottie/queryAddAnimation.json";
+import updateAnimation from "../../assets/lottie/website-maintenance.json";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
-const AddQueries = () => {
+const UpdateQuery = () => {
+  const loader = useLoaderData();
   const { user } = useAuth();
-  const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
-  const handleQueryForm = (e) => {
+  const {
+    _id,
+    productName,
+    productPhoto,
+    productBrand,
+    queryReason,
+    queryTitle,
+  } = loader;
+
+  const handleQueryUpdate = (e) => {
     e.preventDefault();
-
     const formData = new FormData(e.target);
-    const queryData = Object.fromEntries(formData.entries());
+    const updatedQueryData = Object.fromEntries(formData.entries());
 
-    // Creating a new query object with the user information
-    const fullQueryData = {
-      ...queryData,
+    const fullUpdatedQueryData = {
+      ...updatedQueryData,
       userEmail: user?.email,
       userName: user?.displayName,
       userProfilePicture: user?.photoURL,
@@ -26,13 +34,12 @@ const AddQueries = () => {
       createdAt: Date.now(),
     };
 
-    // Sending the data to the Backend here
     axiosSecure
-      .post("/query", fullQueryData)
+      .patch(`/updatequery/${_id}`, fullUpdatedQueryData)
       .then(() => {
         Swal.fire({
           title: "Success!",
-          text: "You have successfully created your product!",
+          text: "You have successfully updated your product!",
           icon: "success",
           willClose: () => {
             navigate("/myqueries");
@@ -48,22 +55,27 @@ const AddQueries = () => {
       });
   };
   return (
-    <div className="max-w-[95%] mx-auto">
-      <header className="text-center mt-10">
-        <h1 className="text-6xl font-bold mb-8">Welcome to Add Your Query</h1>
-        <p className="text-lg font-semibold">
-          Please fill up the form below, to add your product query. Please make
-          sure to give your information correctly!
-        </p>
-      </header>
-
-      {/* Product query form div here */}
+    <div>
+      {/* Update Header div */}
       <div className="mt-10">
-        <div className="xl:w-[30%] md:w-[50%] mx-auto">
-          <Lottie animationData={queryAddAnimation}></Lottie>
-        </div>
+        <h1 className="text-4xl text-center font-bold">Update Your Query</h1>
+        <p className="text-lg text-center mt-4 font-semibold">
+          Please fill out the form below to update your existing query, make
+          sure to give proper information!
+        </p>
+      </div>
+      {/* Update Header div */}
+
+      {/* Banner Lottie Animation div */}
+      <div className="max-w-[400px] md:max-w-[500px] lg:max-w-[600px] mx-auto">
+        <Lottie animationData={updateAnimation}></Lottie>
+      </div>
+      {/* Banner Lottie Animation div */}
+
+      {/* Update Form div here */}
+      <div>
         <div className="card bg-base-100 w-full max-w-screen-md xl:max-w-screen-lg shrink-0 shadow-2xl mx-auto mt-10">
-          <form onSubmit={handleQueryForm} className="card-body">
+          <form onSubmit={handleQueryUpdate} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Product Name</span>
@@ -72,6 +84,7 @@ const AddQueries = () => {
                 type="text"
                 placeholder="Enter Product Name"
                 name="productName"
+                defaultValue={productName}
                 className="input input-bordered"
                 required
               />
@@ -84,6 +97,7 @@ const AddQueries = () => {
                 type="text"
                 placeholder="Enter Product Brand"
                 name="productBrand"
+                defaultValue={productBrand}
                 className="input input-bordered"
                 required
               />
@@ -96,6 +110,7 @@ const AddQueries = () => {
                 type="text"
                 placeholder="Enter Product Photo URL"
                 name="productPhoto"
+                defaultValue={productPhoto}
                 className="input input-bordered"
                 required
               />
@@ -108,6 +123,7 @@ const AddQueries = () => {
                 type="text"
                 placeholder="Enter Query Title"
                 name="queryTitle"
+                defaultValue={queryTitle}
                 className="input input-bordered"
                 required
               />
@@ -120,19 +136,20 @@ const AddQueries = () => {
                 type="text"
                 placeholder="Enter the reason why you do not want this product"
                 name="queryReason"
+                defaultValue={queryReason}
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-accent text-lg">Add Query</button>
+              <button className="btn btn-accent text-lg">Update Query</button>
             </div>
           </form>
         </div>
       </div>
-      {/* Product query form div here */}
+      {/* Update Form div here */}
     </div>
   );
 };
 
-export default AddQueries;
+export default UpdateQuery;

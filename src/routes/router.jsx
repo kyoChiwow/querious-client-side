@@ -6,6 +6,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyQueries from "../pages/MyQueries/MyQueries";
 import HomeLayout from "../Layouts/HomeLayout";
 import AddQueries from "../pages/AddQueries/AddQueries";
+import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,15 @@ const router = createBrowserRouter([
             <AddQueries></AddQueries>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updatequery/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateQuery></UpdateQuery>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch (`http://localhost:5000/updatequery/${params.id}`)
       },
     ],
   },
