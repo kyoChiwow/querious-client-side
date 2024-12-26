@@ -6,7 +6,7 @@ const NavBar = () => {
   const { user, userLogOut } = useAuth();
   const location = useLocation();
   const hideLocation = location.pathname === "/queries"
-  const { searchTerm, setSearchTerm } = useAuth();
+  const { setSearchTerm } = useAuth();
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value)
