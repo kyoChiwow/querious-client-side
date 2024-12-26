@@ -3,11 +3,42 @@ import downArrow from "../../assets/lottie/down-arrow.json";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { FaTrash } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const MyRecommendation = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [recommendations, setRecommendations] = useState([]);
+
+  const handleRecommendDelete = (id, queryId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/products/${id}`).then((res) => {
+          if (res.data.deletedCount) {
+            axiosSecure.patch(`/products/${queryId}`);
+            const remainingRecommendations = recommendations.filter(
+              (recommend) => recommend._id !== id
+            );
+            setRecommendations(remainingRecommendations);
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   useEffect(() => {
     axiosSecure.get(`/products?email=${user.email}`).then((res) => {
@@ -48,13 +79,26 @@ const MyRecommendation = () => {
               <tbody>
                 {/* row 1 */}
                 {recommendations.map((recommend, idx) => (
-                    <tr key={idx}>
+                  <tr key={idx}>
                     <th>{idx + 1}</th>
                     <td>{recommend.currentTimeStamp}</td>
                     <td>{recommend.recommendName}</td>
                     <td>{recommend.recommendTitle}</td>
                     <td>{recommend.productName}</td>
                     <td>{recommend.userName}</td>
+                    <td>
+                      <button
+                        onClick={() =>
+                          handleRecommendDelete(
+                            recommend._id,
+                            recommend.queryId
+                          )
+                        }
+                        className="btn shadow-xl text-red-800"
+                      >
+                        <FaTrash />
+                      </button>
+                    </td>
                   </tr>
                 ))}
                 {/* row 1 */}
