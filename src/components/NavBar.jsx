@@ -5,12 +5,12 @@ import logo from "/public/logo.webp";
 const NavBar = () => {
   const { user, userLogOut } = useAuth();
   const location = useLocation();
-  const hideLocation = location.pathname === "/queries"
+  const hideLocation = location.pathname === "/queries";
   const { setSearchTerm } = useAuth();
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value)
-  }
+    setSearchTerm(e.target.value);
+  };
 
   const handleLogOut = () => {
     userLogOut();
@@ -222,15 +222,23 @@ const NavBar = () => {
           {/* Bottom Search Bar Part */}
 
           {/* Bottom User icon and name part */}
-          <div className="md:flex gap-4 items-center hidden">
-            <img
-              className="w-[60px] h-[60px] rounded-full object-cover"
-              src={user?.photoURL}
-              alt=""
-            />
-            <p className="font-bold text-white text-base">
-              Hi, {user?.displayName}
-            </p>
+          <div>
+            {user?.email ? (
+              <div className="md:flex gap-4 items-center hidden">
+                <img
+                  className="w-[60px] h-[60px] rounded-full object-cover"
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <p className="font-bold text-white text-base">
+                  Hi, {user?.displayName}
+                </p>
+              </div>
+            ) : (
+              <div>
+                <p className="font-bold text-white text-base">Please Login</p>
+              </div>
+            )}
           </div>
           {/* Bottom User icon and name part */}
         </div>

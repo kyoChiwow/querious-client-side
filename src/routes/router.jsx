@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage";
-import Register from "../pages/Register/Register";
-import Login from "../pages/Login/Login";
-import PrivateRoute from "./PrivateRoute";
-import MyQueries from "../pages/MyQueries/MyQueries";
 import HomeLayout from "../Layouts/HomeLayout";
 import AddQueries from "../pages/AddQueries/AddQueries";
-import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
-import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import AllQueries from "../pages/AllQueries/AllQueries";
+import Error404 from "../pages/Error404/Error404";
+import HomePage from "../pages/HomePage/HomePage";
+import Login from "../pages/Login/Login";
+import MyQueries from "../pages/MyQueries/MyQueries";
 import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
-import Error404 from "../pages/Error404/Error404";
+import Register from "../pages/Register/Register";
+import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
+import ViewDetails from "../pages/ViewDetails/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +54,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/updatequery/${params.id}`),
+          fetch(
+            `https://assignment-11-server-side-ten-beryl.vercel.app
+/updatequery/${params.id}`
+          ),
       },
       {
         path: "viewdetails/:id",
@@ -64,7 +67,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/updatequery/${params.id}`),
+          fetch(
+            `https://assignment-11-server-side-ten-beryl.vercel.app
+/updatequery/${params.id}`
+          ),
       },
       {
         path: "myrecommendation",
@@ -90,8 +96,8 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Error404></Error404>
-  }
+    element: <Error404></Error404>,
+  },
 ]);
 
 export default router;

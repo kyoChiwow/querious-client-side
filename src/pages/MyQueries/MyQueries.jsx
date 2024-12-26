@@ -9,6 +9,7 @@ import MyQueryCard from "../../components/MyQueryCard";
 
 const MyQueries = () => {
   const axiosSecure = useAxiosSecure();
+  axiosSecure.defaults.withCredentials = true;
   const { user } = useAuth();
   const [queries, setQueries] = useState([]);
 
