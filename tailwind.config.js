@@ -7,7 +7,11 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'queryBanner' : "url('/src/assets/images/queryBanner.jpg')"
+        'queryBanner' : "url('/src/assets/images/queryBanner.jpg')",
+        'slide1' : "url('/src/assets/slider/slide1.jpg')",
+        'slide2' : "url('/src/assets/slider/slide2.jpg')",
+        'slide3' : "url('/src/assets/slider/slide3.jpg')",
+        'newsletterBg' : "url('/src/assets/images/newsletter.jpg')",
       },
     },
   },

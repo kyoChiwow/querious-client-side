@@ -3,11 +3,14 @@ import downArrow from "../../assets/lottie/down-arrow.json";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import AllQueriesCard from "../../components/AllQueriesCard";
+import useAuth from "../../hooks/useAuth";
 
 const AllQueries = () => {
   const axiosSecure = useAxiosSecure();
   const [queries, setQueries] = useState([]);
   const [gridColumns, setGridColumns] = useState(3);
+  const { searchTerm } = useAuth();
+
 
   useEffect(() => {
     axiosSecure.get("/query").then((res) => {
@@ -15,6 +18,8 @@ const AllQueries = () => {
       setQueries(queryTimeSort);
     });
   }, [axiosSecure]);
+
+  const searchedQueries = queries.filter((query) => query.productName.toLowerCase().includes(searchTerm.toLowerCase()))
 
   const handleGridChange = (columns) => {
     setGridColumns(columns);
@@ -75,7 +80,7 @@ const AllQueries = () => {
             : "lg:grid-cols-4"
         }`}
       >
-        {queries.map((query, idx) => (
+        {searchedQueries.map((query, idx) => (
           <AllQueriesCard key={idx} query={query}></AllQueriesCard>
         ))}
       </div>

@@ -1,9 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import logo from "/public/logo.webp";
 
 const NavBar = () => {
   const { user, userLogOut } = useAuth();
+  const location = useLocation();
+  const hideLocation = location.pathname === "/queries"
+  const { searchTerm, setSearchTerm } = useAuth();
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
 
   const handleLogOut = () => {
     userLogOut();
@@ -189,7 +196,13 @@ const NavBar = () => {
           {/* Bottom Search Bar Part */}
           <div className="lg:w-[40%]">
             <label className="input input-bordered flex items-center gap-2 pr-0">
-              <input type="text" className="grow" placeholder="Search" />
+              <input
+                type="text"
+                className="grow"
+                placeholder="Search"
+                disabled={!hideLocation}
+                onChange={handleSearchChange}
+              />
               <button className="btn bg-black text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

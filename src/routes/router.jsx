@@ -11,6 +11,7 @@ import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import AllQueries from "../pages/AllQueries/AllQueries";
 import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
+import Error404 from "../pages/Error404/Error404";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <Error404></Error404>
+  }
 ]);
 
 export default router;
