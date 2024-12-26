@@ -10,6 +10,7 @@ import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import AllQueries from "../pages/AllQueries/AllQueries";
 import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
+import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addqueries",
+        path: "addqueries",
         element: (
           <PrivateRoute>
             <AddQueries></AddQueries>
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updatequery/:id",
+        path: "updatequery/:id",
         element: (
           <PrivateRoute>
             <UpdateQuery></UpdateQuery>
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/updatequery/${params.id}`),
       },
       {
-        path: "/viewdetails/:id",
+        path: "viewdetails/:id",
         element: (
           <PrivateRoute>
             <ViewDetails></ViewDetails>
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/updatequery/${params.id}`),
       },
       {
-        path: "/myrecommendation",
+        path: "myrecommendation",
         element: (
           <PrivateRoute>
             <MyRecommendation></MyRecommendation>
@@ -73,7 +74,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/queries",
+        path: "recommendme",
+        element: (
+          <PrivateRoute>
+            <RecommendationForMe></RecommendationForMe>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "queries",
         element: <AllQueries></AllQueries>,
       },
     ],
