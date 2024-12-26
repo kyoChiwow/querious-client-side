@@ -86,7 +86,7 @@ const ViewDetails = () => {
       {/* Header info div here */}
 
       {/* View details and all recommendation wrapping div here */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[95%] xl:max-w-[80%] mx-auto mt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-[95%] xl:max-w-[80%] mx-auto mt-10">
         {/* View details card wrapping div */}
         <div className="bg-[#f3b184] rounded-xl bg-opacity-60 shadow-xl p-4">
           {/* Image div */}
