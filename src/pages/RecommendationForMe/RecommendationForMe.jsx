@@ -44,7 +44,7 @@ const RecommendationForMe = () => {
                   <th>Recommended product</th>
                   <th>Recommended title</th>
                   <th>Query product name</th>
-                  <th>Query created by</th>
+                  <th>Recommendation created by</th>
                 </tr>
               </thead>
               <tbody>
