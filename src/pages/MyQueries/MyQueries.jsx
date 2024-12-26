@@ -25,16 +25,18 @@ const MyQueries = () => {
   }
 
   useEffect(() => {
-    axiosSecure.get(`/myquery?email=${user.email}`).then((res) => {
-      setQueries(res.data);
+    axiosSecure.get(`/myquery?email=${user.email}`)
+    .then((res) => {
+      const timeSortQuery = res.data.sort((a,b) => b.createdAt - a.createdAt);
+      setQueries(timeSortQuery);
     });
   }, [user.email, axiosSecure]);
 
   return (
     <div>
       {/* Banner div here */}
-      <div className="bg-queryBanner xl:h-[605px] bg-no-repeat bg-contain xl:bg-cover flex justify-end bg-[#f5f5f5]">
-        <div className="text-center flex flex-col justify-center h-full bg-[#f5f5f5] mr-4 md:mr-16 lg:mr-24 xl:mr-44">
+      <div className="bg-queryBanner xl:h-[605px] bg-no-repeat bg-top md:bg-left xl:bg-top bg-cover md:bg-contain xl:bg-cover flex justify-end bg-[#f5f5f5] py-4">
+        <div className="text-center flex flex-col justify-center h-full mr-2 md:mr-16 lg:mr-24 xl:mr-44">
           <Slide direction="down">
             <h1 className="xl:text-2xl lg:text-lg md:text-md text-xs mb-2">
               Want to add
@@ -52,7 +54,7 @@ const MyQueries = () => {
           </Slide>
           <Slide direction="up">
             <NavLink to={"/addqueries"}>
-              <button className="btn bg-[#FF7519] hover:bg-[#1d1d1d] text-white text-xs md:text-lg md:mt-10">
+              <button className="btn bg-[#FF7519] hover:bg-[#1d1d1d] text-white text-xs md:text-lg md:mt-10 mt-8">
                 Add Queries
               </button>
             </NavLink>
@@ -76,7 +78,7 @@ const MyQueries = () => {
 
         {/* Card div */}
         {queries.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-10 mt-10">
             {queries.map((query, idx) => (
               <MyQueryCard 
               key={idx} 

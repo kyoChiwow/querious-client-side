@@ -1,13 +1,17 @@
 import Lottie from "lottie-react";
 import { useLoaderData } from "react-router-dom";
-import recommendAnimation from "../../assets/lottie/shopping-options.json"
+import recommendAnimation from "../../assets/lottie/shopping-options.json";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import RecommendCard from "../../components/RecommendCard";
 
 const ViewDetails = () => {
   const loader = useLoaderData();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const [recommendations, setRecommendations] = useState([]);
   const {
     _id,
     productName,
@@ -21,27 +25,53 @@ const ViewDetails = () => {
     userProfilePicture,
   } = loader;
 
+  useEffect(() => {
+    axiosSecure.get(`/products?id=${_id}`)
+    .then((res) => {
+      setRecommendations(res.data);
+    });
+  }, [_id, axiosSecure]);
+
   const handleRecommendForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const recommendForm = Object.fromEntries(formData.entries())
-    
+    const recommendForm = Object.fromEntries(formData.entries());
+
     const fullRecommendForm = {
-        ...recommendForm,
-        queryId: _id,
-        queryTitle: queryTitle,
-        productName: productName,
-        userEmail: userEmail,
-        userName: userName,
-        recommederName: user.displayName,
-        recommenderEmail: user.email,
-        currentTimeStamp: Date.now(),
-    }
+      ...recommendForm,
+      queryId: _id,
+      queryTitle: queryTitle,
+      productName: productName,
+      userEmail: userEmail,
+      userName: userName,
+      recommederName: user.displayName,
+      recommenderEmail: user.email,
+      currentTimeStamp: new Date().toLocaleDateString(),
+    };
 
-    axiosSecure.post("/products", fullRecommendForm)
-    
+    axiosSecure
+      .post("/products", fullRecommendForm)
+      .then(() => {
+        // Increment the recommendation count here
+        axiosSecure.patch(`/updatequery/${_id}`);
 
-  }
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully added your recommendation!",
+          icon: "success",
+          willClose: () => {
+            window.location.reload();
+          },
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error!",
+          text: err.message,
+          icon: "error",
+        });
+      });
+  };
   return (
     <div>
       {/* Header info div here */}
@@ -107,9 +137,11 @@ const ViewDetails = () => {
         {/* All recommendation div here */}
         <div>
           {recommendationCount > 0 ? (
-            ""
+            <div className="bg-[#f3b184] bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4 grid grid-cols-1 gap-10">
+              {recommendations.map((recommend, idx) => <RecommendCard key={idx} recommend={recommend}></RecommendCard>)}
+            </div>
           ) : (
-            <div className="bg-[#f3b184] bg-opacity-60 min-h-[300px] rounded-xl p-4">
+            <div className="bg-[#f3b184] bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4">
               <p className="font-semibold text-lg">
                 No recommendation has been added!
               </p>
@@ -166,7 +198,9 @@ const ViewDetails = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Recommended Product Photo</span>
+                    <span className="label-text">
+                      Recommended Product Photo
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -189,7 +223,9 @@ const ViewDetails = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Add Recommendation</button>
+                  <button className="btn btn-primary">
+                    Add Recommendation
+                  </button>
                 </div>
               </form>
             </div>

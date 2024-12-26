@@ -8,6 +8,7 @@ import HomeLayout from "../Layouts/HomeLayout";
 import AddQueries from "../pages/AddQueries/AddQueries";
 import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
+import AllQueries from "../pages/AllQueries/AllQueries";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:5000/updatequery/${params.id}`)
+      },
+      {
+        path: "/queries",
+        element: <AllQueries></AllQueries>
       },
     ],
   },

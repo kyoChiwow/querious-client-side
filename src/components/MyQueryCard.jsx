@@ -24,14 +24,18 @@ const MyQueryCard = ({ query, onDelete }) => {
         });
       }
     });
-  }
+  };
   return (
     <div className="xl:max-w-[80%] max-w-[90%] mx-auto">
       {/* Card Wrapping div */}
-      <div className="bg-[#1D1D1D] bg-opacity-90 rounded-xl shadow-xl p-4">
+      <div className="bg-[#1D1D1D] bg-opacity-90 rounded-xl shadow-xl p-4 h-[700px] flex flex-col justify-between">
         {/* Image div */}
-        <div className="max-w-[330px]">
-          <img className="rounded-xl h-[330px] w-full object-fill" src={productPhoto} alt={productName} />
+        <div className="max-w-[350px]">
+          <img
+            className="rounded-xl h-[350px] w-full object-fill"
+            src={productPhoto}
+            alt={productName}
+          />
         </div>
         {/* Image div */}
 
@@ -50,19 +54,24 @@ const MyQueryCard = ({ query, onDelete }) => {
         {/* Infomation div */}
 
         {/* Buttons Div */}
-        <div className="flex justify-between">
-          <NavLink to={`/viewdetails/${_id}`}>
-            <button className="btn btn-sm btn-accent btn-outline">
-              View Details
+          <div className="flex justify-between">
+            <NavLink to={`/viewdetails/${_id}`}>
+              <button className="btn btn-sm btn-accent btn-outline">
+                View Details
+              </button>
+            </NavLink>
+            <NavLink to={`/updatequery/${_id}`}>
+              <button className="btn btn-sm btn-secondary btn-outline">
+                Update
+              </button>
+            </NavLink>
+            <button
+              onClick={handleDelete}
+              className="btn btn-sm btn-error btn-outline"
+            >
+              Delete
             </button>
-          </NavLink>
-          <NavLink to={`/updatequery/${_id}`}>
-            <button className="btn btn-sm btn-secondary btn-outline">
-              Update
-            </button>
-          </NavLink>
-          <button onClick={handleDelete} className="btn btn-sm btn-error btn-outline">Delete</button>
-        </div>
+          </div>
         {/* Buttons Div */}
       </div>
       {/* Card Wrapping div */}
