@@ -9,6 +9,7 @@ import AddQueries from "../pages/AddQueries/AddQueries";
 import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import AllQueries from "../pages/AllQueries/AllQueries";
+import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 
 const router = createBrowserRouter([
   {
@@ -60,11 +61,20 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/updatequery/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/updatequery/${params.id}`),
+      },
+      {
+        path: "/myrecommendation",
+        element: (
+          <PrivateRoute>
+            <MyRecommendation></MyRecommendation>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/queries",
-        element: <AllQueries></AllQueries>
+        element: <AllQueries></AllQueries>,
       },
     ],
   },
