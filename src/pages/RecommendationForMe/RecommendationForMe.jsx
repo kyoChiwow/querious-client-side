@@ -17,7 +17,7 @@ const RecommendationForMe = () => {
   return (
     <div>
       {/* Header div */}
-      <div className="mt-10">
+      <div className="pt-[190px]">
         <div className="flex flex-col justify-center items-center lg:flex-row gap-4">
           <h1 className="text-4xl font-bold text-center">
             Recommendation For Me
@@ -34,7 +34,7 @@ const RecommendationForMe = () => {
       {/* Table div here */}
       <div className="min-h-screen">
         <div className="mt-8 bg-base-300">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-w-[95%] xl:max-w-[80%] mx-auto">
             <table className="table">
               {/* head */}
               <thead>

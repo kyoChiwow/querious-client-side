@@ -34,7 +34,7 @@ const MyQueries = () => {
   }, [user.email, axiosSecure]);
 
   return (
-    <div>
+    <div className="pt-[150px]">
       {/* Banner div here */}
       <div className="bg-queryBanner xl:h-[605px] bg-no-repeat bg-top md:bg-left xl:bg-top bg-cover md:bg-contain xl:bg-cover flex justify-end bg-[#f5f5f5] py-4">
         <div className="text-center flex flex-col justify-center h-full mr-2 md:mr-16 lg:mr-24 xl:mr-44">
@@ -65,7 +65,7 @@ const MyQueries = () => {
       {/* Banner div here */}
 
       {/* Card div here */}
-      <div className="mt-20">
+      <div className="mt-10 max-w-[95%] xl:max-w-[80%] mx-auto">
         {/* Header div */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-4">
           <div>
@@ -79,7 +79,7 @@ const MyQueries = () => {
 
         {/* Card div */}
         {queries.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-10 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-5 mt-5">
             {queries.map((query, idx) => (
               <MyQueryCard 
               key={idx} 

@@ -14,7 +14,7 @@ const Error404 = () => {
       {/* Navbar */}
 
       {/* Lottie Animation */}
-      <div className="max-w-[800px] mx-auto mt-10 flex justify-center items-center">
+      <div className="max-w-[800px] mx-auto pt-[190px] flex justify-center items-center min-h-screen">
         <Lottie animationData={errorAnimation}></Lottie>
         <div>
           <NavLink to={"/"}>

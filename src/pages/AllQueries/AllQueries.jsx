@@ -8,9 +8,9 @@ import useAuth from "../../hooks/useAuth";
 const AllQueries = () => {
   const axiosSecure = useAxiosSecure();
   const [queries, setQueries] = useState([]);
-  const [gridColumns, setGridColumns] = useState(3);
+  const [gridColumns, setGridColumns] = useState(4);
   const { searchTerm } = useAuth();
-
+  const [sortOrder, setSortOrder] = useState("descending");
 
   useEffect(() => {
     axiosSecure.get("/query").then((res) => {
@@ -19,16 +19,31 @@ const AllQueries = () => {
     });
   }, [axiosSecure]);
 
-  const searchedQueries = queries.filter((query) => query.productName.toLowerCase().includes(searchTerm.toLowerCase()))
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+    if (order === "ascending") {
+      setQueries((prevQueries) =>
+        [...prevQueries].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } else if (order === "descending") {
+      setQueries((prevQueries) =>
+        [...prevQueries].sort((a, b) => b.createdAt - a.createdAt)
+      );
+    }
+  };
+
+  const searchedQueries = queries.filter((query) =>
+    query.productName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleGridChange = (columns) => {
     setGridColumns(columns);
   };
 
   return (
-    <div>
+    <div className="max-w-[95%] xl:max-w-[80%] mx-auto min-h-screen">
       {/* Heading div */}
-      <div className="mt-10">
+      <div className="pt-[190px]">
         <div className="flex gap-4 justify-center items-center">
           <h1 className="font-bold text-4xl">All Queries</h1>
           <Lottie className="w-20" animationData={downArrow}></Lottie>
@@ -42,37 +57,46 @@ const AllQueries = () => {
       {/* Heading div */}
 
       {/* Grid Layout Toggle Buttons */}
-      <div className="lg:flex justify-center gap-4 mt-6 hidden">
-        <button
-          className={`btn ${
-            gridColumns === 2 ? "btn-error" : "btn-primary btn-outline"
-          }`}
-          onClick={() => handleGridChange(2)}
-        >
-          2-Column Grid
-        </button>
-        <button
-          className={`btn ${
-            gridColumns === 3 ? "btn-error" : "btn-primary btn-outline"
-          }`}
-          onClick={() => handleGridChange(3)}
-        >
-          3-Column Grid
-        </button>
-        <button
-          className={`btn ${
-            gridColumns === 4 ? "btn-error" : "btn-primary btn-outline"
-          }`}
-          onClick={() => handleGridChange(4)}
-        >
-          4-Column Grid
-        </button>
+      <div className="flex items-center justify-end mt-5">
+        <details className="dropdown">
+          <summary className="btn btn-sm bg-[#1D1D1D] text-white hover:-translate-y-2 m-1">
+            Sort by (time)
+          </summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li>
+              <button onClick={() => handleSortChange("ascending")}>
+                ascending
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleSortChange("descending")}>
+                descending
+              </button>
+            </li>
+          </ul>
+        </details>
+        <details className="dropdown">
+          <summary className="btn btn-sm bg-[#1D1D1D] text-white hover:-translate-y-2 m-1">
+            Layout
+          </summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow gap-4">
+            <button className={`btn`} onClick={() => handleGridChange(2)}>
+              2-Column Grid
+            </button>
+            <button className={`btn`} onClick={() => handleGridChange(3)}>
+              3-Column Grid
+            </button>
+            <button className={`btn`} onClick={() => handleGridChange(4)}>
+              4-Column Grid
+            </button>
+          </ul>
+        </details>
       </div>
       {/* Grid Layout Toggle Buttons */}
 
       {/* Query Card wrapping div */}
       <div
-        className={`grid gap-10 max-w-[95%] xl:max-w-[80%] mx-auto mt-10 grid-cols-1 md:grid-cols-2 ${
+        className={`grid gap-5 mt-10 grid-cols-1 md:grid-cols-2 ${
           gridColumns === 2
             ? "lg:grid-cols-2"
             : gridColumns === 3

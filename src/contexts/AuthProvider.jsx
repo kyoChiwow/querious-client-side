@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -7,18 +8,17 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { useEffect, useState } from "react";
-import AuthContext from "./AuthContext";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import auth from "../firebase/firebase.init";
-import axios from "axios";
+import AuthContext from "./AuthContext";
 
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Register User here
   const createUserEmail = (email, password) => {
@@ -48,11 +48,11 @@ const AuthProvider = ({ children }) => {
   };
   // Login Google User here
 
-  // User Logout here 
+  // User Logout here
   const userLogOut = () => {
     return signOut(auth);
-  }
-  // User Logout here 
+  };
+  // User Logout here
 
   //   Setting up an observer here
   useEffect(() => {
@@ -61,21 +61,29 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
 
-        axios.post("http://localhost:5000/jwt", user, {
-          withCredentials: true,
-        })
-        .then(() => {
-          setLoading(false)
-        })
-      }
-
-      else {
-        axios.post("http://localhost:5000/logout", {}, {
-          withCredentials: true,
-        })
-        .then(() => {
-          setLoading(false)
-        })
+        axios
+          .post(
+            "https://assignment-11-server-side-ten-beryl.vercel.app/jwt",
+            user,
+            {
+              withCredentials: true,
+            }
+          )
+          .then(() => {
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post(
+            "https://assignment-11-server-side-ten-beryl.vercel.app/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then(() => {
+            setLoading(false);
+          });
       }
     });
     return () => {

@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "customerName": "John Doe",
+      "productName": "Wireless Headphones",
+      "rating": 5,
+      "review": "I have been using these headphones for over a month now, and they are absolutely fantastic. The sound quality is crystal clear, with deep bass and balanced mids and highs. The noise cancellation feature works incredibly well, especially in noisy environments like coffee shops. The battery life is also outstanding, lasting for days on a single charge. They are lightweight and very comfortable for extended use, even during long flights. Highly recommended for music lovers and frequent travelers.",
+      "date": "2025-01-10",
+      "customerImage": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg"
+    },
+    {
+      "id": 2,
+      "customerName": "Jane Smith",
+      "productName": "Smart Watch",
+      "rating": 4,
+      "review": "This smartwatch is packed with features that make it an excellent companion for daily activities. The fitness tracking is accurate, and I love how it monitors my sleep patterns. The customizable watch faces allow me to match it to my outfits, making it versatile for both work and casual settings. However, the battery life could be improved as it requires charging every two days. Overall, it’s a great gadget for those looking to combine style and functionality.",
+      "date": "2025-01-09",
+      "customerImage": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+    },
+    {
+      "id": 3,
+      "customerName": "Michael Johnson",
+      "productName": "Gaming Mouse",
+      "rating": 5,
+      "review": "This gaming mouse has completely transformed my gaming experience. The precision and responsiveness are unmatched, giving me a competitive edge in fast-paced games. The ergonomic design fits perfectly in my hand, reducing fatigue during long gaming sessions. I also love the customizable RGB lighting and programmable buttons, which add a personal touch to the setup. It's a bit pricey, but worth every penny for serious gamers.",
+      "date": "2025-01-08",
+      "customerImage": "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg"
+    },
+    {
+      "id": 4,
+      "customerName": "Emily Davis",
+      "productName": "4K Monitor",
+      "rating": 5,
+      "review": "This 4K monitor has exceeded all my expectations. The picture quality is stunning, with vibrant colors and incredible sharpness. Whether I’m watching movies, editing photos, or gaming, it delivers an immersive visual experience. The adjustable stand and slim bezels are an added bonus, making it a perfect fit for my desk setup. It’s a bit of an investment, but for anyone who values top-notch visuals, this monitor is a game-changer.",
+      "date": "2025-01-07",
+      "customerImage": "https://images.pexels.com/photos/1129371/pexels-photo-1129371.jpeg"
+    },
+    {
+      "id": 5,
+      "customerName": "Chris Brown",
+      "productName": "Bluetooth Speaker",
+      "rating": 3,
+      "review": "The sound quality of this Bluetooth speaker is decent, with clear vocals and good bass response. It's compact and easy to carry around, which makes it great for outdoor use. However, the build quality feels a bit flimsy, and I’m not sure how long it will last. Additionally, the battery life is shorter than expected, requiring frequent recharges. It’s an okay product, but there are better options available in this price range.",
+      "date": "2025-01-06",
+      "customerImage": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg"
+    },
+    {
+      "id": 6,
+      "customerName": "Laura Wilson",
+      "productName": "Fitness Tracker",
+      "rating": 4,
+      "review": "This fitness tracker has been a great addition to my workout routine. It accurately tracks my steps, heart rate, and even my sleep patterns. The companion app provides detailed insights, helping me stay motivated and achieve my fitness goals. The design is sleek, and it feels comfortable on my wrist all day. My only gripe is that the app interface could use some improvements, as it feels a bit clunky at times. Overall, a solid choice for fitness enthusiasts.",
+      "date": "2025-01-05",
+      "customerImage": "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg"
+    },
+    {
+      "id": 7,
+      "customerName": "Daniel Moore",
+      "productName": "Portable Charger",
+      "rating": 5,
+      "review": "This portable charger is an absolute lifesaver. It charges my phone and tablet incredibly quickly, even when I’m on the go. The large battery capacity means I can go days without needing to recharge the charger itself. It’s compact and lightweight, making it easy to carry in my bag. The build quality is excellent, and it feels very durable. If you travel frequently or need reliable power backup, this is a must-have accessory.",
+      "date": "2025-01-04",
+      "customerImage": "https://images.pexels.com/photos/417370/pexels-photo-417370.jpeg"
+    },
+    {
+      "id": 8,
+      "customerName": "Sophia Taylor",
+      "productName": "Noise-Canceling Earbuds",
+      "rating": 4,
+      "review": "These earbuds are a fantastic choice for anyone who values great sound and effective noise cancellation. The audio quality is excellent, with rich bass and clear vocals. The noise-canceling feature is particularly impressive, blocking out most background noise even in busy environments. However, the earbuds can feel a bit uncomfortable during extended use, and the battery life, while decent, could be better. Despite these minor drawbacks, they’re a solid option for music lovers.",
+      "date": "2025-01-03",
+      "customerImage": "https://images.pexels.com/photos/3205751/pexels-photo-3205751.jpeg"
+    },
+    {
+      "id": 9,
+      "customerName": "Oliver White",
+      "productName": "Gaming Keyboard",
+      "rating": 5,
+      "review": "This gaming keyboard is a game-changer. The mechanical keys are incredibly responsive and satisfying to type on, and the RGB lighting is fully customizable to match my setup. The build quality is top-notch, and it feels very sturdy. I also appreciate the dedicated media keys, which make it easy to control music and volume during gameplay. It’s a fantastic investment for any serious gamer.",
+      "date": "2025-01-02",
+      "customerImage": "https://images.pexels.com/photos/1198166/pexels-photo-1198166.jpeg"
+    },
+    {
+      "id": 10,
+      "customerName": "Mia Harris",
+      "productName": "E-Reader",
+      "rating": 4,
+      "review": "This e-reader is perfect for anyone who loves to read on the go. The screen is easy on the eyes, even in bright sunlight, and the lightweight design makes it easy to carry around. The battery life is excellent, lasting for weeks on a single charge. My only complaint is that the screen could be a bit brighter for reading in dim lighting. Overall, it’s a great device for book lovers.",
+      "date": "2025-01-01",
+      "customerImage": "https://i.ibb.co.com/3780LxP/pexels-olly-774909.jpg"
+    },
+    {
+      "id": 11,
+      "customerName": "Ethan Martin",
+      "productName": "Digital Camera",
+      "rating": 5,
+      "review": "This digital camera is absolutely incredible. The image quality is stunning, even in low-light conditions. The controls are intuitive, and the camera feels comfortable to hold for extended periods. I’ve been able to capture some amazing shots that I wouldn’t have been able to with my smartphone. It’s a bit pricey, but for photography enthusiasts, it’s worth every penny.",
+      "date": "2024-12-31",
+      "customerImage": "https://images.pexels.com/photos/5768035/pexels-photo-5768035.jpeg"
+    },
+    {
+      "id": 12,
+      "customerName": "Olivia Anderson",
+      "productName": "Laptop Stand",
+      "rating": 4,
+      "review": "This laptop stand is a great addition to my home office setup. It’s adjustable and sturdy, making it easy to find the perfect angle for comfortable working. The build quality is excellent, and it holds my laptop securely. My only complaint is that it’s not very portable, which makes it less convenient for travel. Despite that, it’s an excellent product for improving ergonomics.",
+      "date": "2024-12-30",
+      "customerImage": "https://images.pexels.com/photos/7879864/pexels-photo-7879864.jpeg"
+    }
+  ]
+  

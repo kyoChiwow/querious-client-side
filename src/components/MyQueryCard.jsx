@@ -26,9 +26,9 @@ const MyQueryCard = ({ query, onDelete }) => {
     });
   };
   return (
-    <div className="xl:max-w-[80%] max-w-[90%] mx-auto">
+    <div>
       {/* Card Wrapping div */}
-      <div className="bg-[#1D1D1D] bg-opacity-90 rounded-xl shadow-xl p-4 h-[700px] flex flex-col justify-between">
+      <div className="bg-[#707070] bg-opacity-90 rounded-xl shadow-xl p-4 h-[750px] flex flex-col justify-between">
         {/* Image div */}
         <div className="max-w-[350px]">
           <img
@@ -40,7 +40,7 @@ const MyQueryCard = ({ query, onDelete }) => {
         {/* Image div */}
 
         {/* Infomation div */}
-        <div className="mt-8 max-w-[330px]">
+        <div className="bg-[#1d1d1d] h-[325px] flex flex-col justify-between p-2 mt-4 rounded-2xl shadow-xl">
           <p className="text-white mb-4 text-lg">
             Query Title: <span className="font-bold">{queryTitle}</span>
           </p>
@@ -54,20 +54,20 @@ const MyQueryCard = ({ query, onDelete }) => {
         {/* Infomation div */}
 
         {/* Buttons Div */}
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-5">
             <NavLink to={`/viewdetails/${_id}`}>
-              <button className="btn btn-sm btn-accent btn-outline">
+              <button className="btn btn-sm bg-[#1d1d1d] text-white border-none hover:-translate-y-2 btn-outline">
                 View Details
               </button>
             </NavLink>
             <NavLink to={`/updatequery/${_id}`}>
-              <button className="btn btn-sm btn-secondary btn-outline">
+              <button className="btn btn-sm bg-[#ff7519] text-white border-none hover:-translate-y-2 btn-outline">
                 Update
               </button>
             </NavLink>
             <button
               onClick={handleDelete}
-              className="btn btn-sm btn-error btn-outline"
+              className="btn btn-sm bg-[#1d1d1d] text-white border-none hover:-translate-y-2 btn-outline"
             >
               Delete
             </button>

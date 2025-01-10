@@ -48,7 +48,7 @@ const MyRecommendation = () => {
   return (
     <div>
       {/* Header div here */}
-      <div className="mt-10 p-2">
+      <div className="pt-[190px] p-2">
         <div className="flex flex-col md:flex-row justify-center items-center gap-4">
           <h1 className="text-4xl font-bold text-center">My Recommendation</h1>
           <Lottie className="w-20" animationData={downArrow}></Lottie>
@@ -63,7 +63,7 @@ const MyRecommendation = () => {
       {/* Table div here */}
       <div className="min-h-screen">
         <div className="mt-8 bg-base-300">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-w-[95%] xl:max-w-[80%] mx-auto">
             <table className="table">
               {/* head */}
               <thead>

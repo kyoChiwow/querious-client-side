@@ -9,7 +9,7 @@ const Faq = () => {
 
       {/* FAQ */}
       <div className="mt-10 max-w-[95%] xl:max-w-[80%] mx-auto flex flex-col gap-8">
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium">
             What is Querious, and how does it work?
@@ -32,7 +32,7 @@ const Faq = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How do I create an account on Querious?
@@ -53,7 +53,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             What types of recommendations can I expect from Querious?
@@ -75,7 +75,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How does Querious ensure my data is secure?
@@ -97,7 +97,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Can I track my previous queries and recommendations?
@@ -118,7 +118,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How does Querious generate recommendations?
@@ -140,7 +140,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             Is Querious free to use?
@@ -161,7 +161,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How can I improve the quality of my recommendations?
@@ -183,7 +183,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             What should I do if I don’t find relevant recommendations?
@@ -204,7 +204,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus bg-base-100">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How can I contact Querious for support?

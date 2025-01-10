@@ -1,4 +1,16 @@
+import Swal from "sweetalert2";
+
 const Newsletter = () => {
+  const handleNewsletter = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    Swal.fire({
+      title: "Good job!",
+      text: "We have received your email, Stay tuned for more news!",
+      icon: "success"
+    });
+    form.reset();
+  }
   return (
     <div>
       {/* Header div */}
@@ -18,14 +30,15 @@ const Newsletter = () => {
         </p>
 
         <div className="mt-10">
-          <div className="join w-full">
+          <form onSubmit={handleNewsletter} className="join w-full">
             <input
               type="text"
+              name="email"
               placeholder="Enter your email"
               className="input input-bordered join-item w-full"
             />
-            <button className="btn btn-primary join-item">Subscribe</button>
-          </div>
+            <button className="btn bg-[#ff7519] join-item">Subscribe</button>
+          </form>
         </div>
       </div>
       {/* Newsletter card div */}

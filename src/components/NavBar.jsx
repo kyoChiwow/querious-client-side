@@ -22,8 +22,8 @@ const NavBar = () => {
         to={"/"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Home
@@ -32,8 +32,8 @@ const NavBar = () => {
         to={"/queries"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Queries
@@ -42,8 +42,8 @@ const NavBar = () => {
         to={"/login"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Login
@@ -52,8 +52,8 @@ const NavBar = () => {
         to={"/register"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Register
@@ -66,8 +66,8 @@ const NavBar = () => {
         to={"/"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Home
@@ -76,8 +76,8 @@ const NavBar = () => {
         to={"/queries"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Queries
@@ -86,8 +86,8 @@ const NavBar = () => {
         to={"/recommendme"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         Recommendation For Me
@@ -96,8 +96,8 @@ const NavBar = () => {
         to={"/myqueries"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         My Queries
@@ -106,8 +106,8 @@ const NavBar = () => {
         to={"/myrecommendation"}
         className={({ isActive }) =>
           isActive
-            ? "text-[#ff7519] font-bold text-lg"
-            : "text-white font-bold text-lg"
+            ? "text-[#ff7519] font-bold text-lg hover:text-[#ff7519]"
+            : "text-white font-bold text-lg hover:text-[#ff7519]"
         }
       >
         My Recommendation
@@ -126,18 +126,18 @@ const NavBar = () => {
 
       <button
         onClick={handleLogOut}
-        className={"text-white font-bold text-lg text-left"}
+        className={"text-white font-bold text-lg text-left hover:text-[#ff7519]"}
       >
         Logout
       </button>
     </>
   );
   return (
-    <div>
+    <div className="fixed z-10 w-full">
       {/* Navbar top part */}
-      <div className="bg-[#1D1D1D] py-2">
+      <div className="bg-[#1D1D1D] bg-opacity-90 py-2">
         {/* Top part inside div */}
-        <div className="lg:max-w-[85%] mx-auto space-x-10 hidden lg:block">
+        <div className="max-w-[95%] xl:max-w-[80%] mx-auto space-x-10 hidden lg:block">
           {user ? withUserLinks : withoutUserLinks}
         </div>
         {/* Top part inside div */}
@@ -178,9 +178,9 @@ const NavBar = () => {
       {/* Navbar top part */}
 
       {/* Navbar bottom Part */}
-      <div className="bg-[#ff7519] px-2 lg:px-0">
+      <div className="bg-[#ff7519] bg-opacity-90 px-2 lg:px-0">
         {/* Bottom part div */}
-        <div className="lg:max-w-[85%] mx-auto py-4 flex justify-between items-center">
+        <div className="max-w-[95%] xl:max-w-[80%] mx-auto py-4 flex justify-between items-center">
           {/* Bottom Header and Logo part */}
           <div className="flex items-center gap-4">
             <div>

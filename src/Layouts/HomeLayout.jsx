@@ -9,11 +9,11 @@ const HomeLayout = () => {
                 <NavBar></NavBar>
             </header>
             {/* Outlet div here */}
-            <div>
+            <div className="bg-base-200 pb-10">
                 <Outlet></Outlet>
             </div>
             {/* Outlet div here */}
-            <footer className="mt-20">
+            <footer>
                 <Footer></Footer>
             </footer>
         </div>

@@ -75,7 +75,7 @@ const ViewDetails = () => {
   return (
     <div>
       {/* Header info div here */}
-      <div className="mt-10">
+      <div className="pt-[190px]">
         <h1 className="text-4xl font-bold text-center">Query Details</h1>
         <p className="text-lg font-semibold text-center mt-4">
           Check out the details of this particular query, You can only see the
@@ -88,15 +88,15 @@ const ViewDetails = () => {
       {/* View details and all recommendation wrapping div here */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-[95%] xl:max-w-[80%] mx-auto mt-10">
         {/* View details card wrapping div */}
-        <div className="bg-[#f3b184] rounded-xl bg-opacity-60 shadow-xl p-4">
+        <div className="bg-base-300 rounded-xl bg-opacity-60 shadow-xl p-4">
           {/* Image div */}
           <div className="flex justify-center">
-            <img className="rounded-xl" src={productPhoto} alt={productName} />
+            <img className="rounded-xl h-[500px]" src={productPhoto} alt={productName} />
           </div>
           {/* Image div */}
 
           {/* Card information div here */}
-          <div>
+          <div className="bg-base-200 p-4 rounded-xl mt-5">
             <p className="text-lg my-4">
               Query Title:{" "}
               <span className="text-lg font-bold">{queryTitle}</span>
@@ -137,11 +137,11 @@ const ViewDetails = () => {
         {/* All recommendation div here */}
         <div>
           {recommendationCount > 0 ? (
-            <div className="bg-[#f3b184] bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4 grid grid-cols-1 gap-10">
+            <div className="bg-base-300 bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4 grid grid-cols-1 gap-10">
               {recommendations.map((recommend, idx) => <RecommendCard key={idx} recommend={recommend}></RecommendCard>)}
             </div>
           ) : (
-            <div className="bg-[#f3b184] bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4">
+            <div className="bg-base-300 bg-opacity-60 min-h-[300px] shadow-xl rounded-xl p-4">
               <p className="font-semibold text-lg">
                 No recommendation has been added!
               </p>
@@ -152,7 +152,7 @@ const ViewDetails = () => {
       </div>
 
       {/* Recommendation Form div here */}
-      <div className="mt-20">
+      <div className="mt-10">
         {/* Recommendation header div here */}
         <div>
           <h1 className="text-center text-4xl font-bold">Recommend Product</h1>
@@ -165,13 +165,13 @@ const ViewDetails = () => {
         {/* Recommendation header div here */}
 
         {/* Recommendation form div here */}
-        <div className="hero bg-base-200 min-h-screen mt-10">
+        <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left max-w-[350px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[800px] lg:ml-10">
               <Lottie animationData={recommendAnimation}></Lottie>
             </div>
             <div className="card bg-base-100 w-full max-w-sm md:max-w-lg lg:max-w-sm xl:max-w-xl shrink-0 shadow-2xl">
-              <form onSubmit={handleRecommendForm} className="card-body">
+              <form onSubmit={handleRecommendForm} className="card-body bg-base-100 rounded-xl">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Recommendation Title</span>
@@ -223,7 +223,7 @@ const ViewDetails = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">
+                  <button className="btn bg-[#707070] text-white">
                     Add Recommendation
                   </button>
                 </div>
