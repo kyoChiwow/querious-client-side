@@ -1,5 +1,5 @@
 # Querious
-Live URL: [hello]()
+Live URL: [https://assignment-11-ebe19.web.app](https://assignment-11-ebe19.web.app)
 
 ---
 
