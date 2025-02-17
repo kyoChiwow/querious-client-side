@@ -61,7 +61,7 @@ const UpdateQuery = () => {
         <h1 className="text-4xl text-center font-bold">Update Your Query</h1>
         <p className="text-lg text-center mt-4 font-semibold">
           Please fill out the form below to update your existing query, make
-          sure to give proper informatio
+          sure to give proper information!
         </p>
       </div>
       {/* Update Header div */}
