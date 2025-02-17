@@ -78,7 +78,7 @@ const UpdateQuery = () => {
           <form onSubmit={handleQueryUpdate} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Product Nam</span>
+                <span className="label-text">Product Name</span>
               </label>
               <input
                 type="text"
